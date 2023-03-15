@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+	<title>KomuniQ Dashboard</title>
+	<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+        }
+
+        header {
+            background-color: white;
+            color: #024faa;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+        }
+
+        nav li {
+            margin-right: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            color: #024faa;
+        }
+
+        section.cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            flex: 1;
+            min-width: 300px;
+            margin-right: 20px;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #024faa;
+            color: #FFDD64;
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+	<header>
+        <a href="parent_dashboard.html"><img src="Long_Logo.jpg" alt="KomuniQ Text"></a>
+		<h1>KomuniQ</h1>
+		<nav>
+			<ul>
+				<li><a href="parent_dashboard.html">Dashboard</a></li>
+				<li><a href="notas.html">Notas</a></li>
+				<li><a href="#">Mensajes</a></li>
+                <li><a href="cuentas.html">Cuentas</a></li>
+				<li><a href="ajustes.html">Ajustes</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<section class="cards">
+		<div class="card">
+			<h2>Notas</h2>
+			<!-- Add your grades visualization here -->
+		</div>
+		<div class="card">
+			<h2>Cuentas</h2>
+			<!-- Add your account information here -->
+		</div>
+		<div class="card">
+			<h2>Mensajes</h2>
+			<!-- Add your messages and notifications here -->
+		</div>
+		<div class="card">
+			<h2>Other</h2>
+			<!-- Add any additional information or features here -->
+		</div>
+	</section>
+
+	<footer>
+		<p>&copy; 2023 KomuniQ Inc. All rights reserved.</p>
+	</footer>
+</body>
+</html>
