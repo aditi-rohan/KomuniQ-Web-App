@@ -4,14 +4,35 @@ from flask import Blueprint, render_template, request, jsonify, redirect, url_fo
 views = Blueprint(__name__, "views")
 
 
-@views.route("/")
+@views.route('/')
 def home():
   return render_template("login.html")
 
 
+database = {'username': 'password', 'StudentID': 'sPassword'}
+
+
 # declara cual dashboard se le ensenara al usuario dependiendo de si es padre, maestro, admin, o no reconocido
-@views.route("/dashboard")
-def dashboard():
+@views.route('/form_login', methods=['POST', 'GET'])
+def login():
+  user = request.form('username')
+  pwd = request.form('password')
+  permission = request.form('permission')
+  if (user not in database):
+    return render_template('login.html', info='Usuario no es reconocido')
+  else:
+    if (database[user] != pwd):
+      return render_template('login.html', info='Usuario no es reconocido')
+    else:
+      if (permission == ""):
+        return render_template('login.html',
+                               info='Usuario no es reconocido, escoja su rol')
+      elif (permission == 'Acudiente'):
+        return render_template('parent_dashboard.html')
+      elif (permission == 'Educador/a'):
+        return render_template('teacher_dashboard.html')
+      elif (permission == 'Administrador/a'):
+        return render_template('admin_dashboard.html')
   parent = "parent"
   teacher = "teacher"
   admins = "admin"
