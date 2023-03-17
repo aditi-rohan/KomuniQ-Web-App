@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@300;400;500;600;700&display=swap');
+h1 {
+  color: #024faa;
+  font-size: 36px;
+  font-weight: bold;
+  font-family: 'Mukta Vaani', sans-serif;
+  margin-bottom: 40px;
+  text-align: center;
+}
+h2 {
+  color: #024faa;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Mukta Vaani', sans-serif;
+  margin-bottom: 30px;
+  text-align: center;
+}
+h3 {
+  color: #024faa;
+  font-size: 26px;
+  font-weight: bold;
+  font-family: 'Mukta Vaani', sans-serif;
+  margin-bottom: 20px;
+  text-align: center;
+}
+h4 {
+  color: #024faa;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Mukta Vaani', sans-serif;
+  margin-bottom: 15px;
+  text-align: center;
+}
+h5 {
+  color: #024faa;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Mukta Vaani', sans-serif;
+  margin-bottom: 10px;
+  text-align: center;
+}
+p{
+  color: var(content-text);
+  font-size: 12px;
+  font-weight: normal;
+  font-family: 'Mukta Vaani', sans-serif;
+  margin-bottom: 10px;
+  text-align: center;
+}
+* {
+  primary-text-color: #024faa;
+  highlighted-text-color: #FFDD64;
+  nav-background: white;
+  mixed-white-background: seashell;
+  content-text: black;
+  good-color: lightseagreen;
+  bad-color: indianred;
+  warning-color: darkorange;
+}
