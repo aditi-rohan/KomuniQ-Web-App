@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
-from . import db
+from . import db  #import db from __init__.py
 from flask_login import login_user, login_required, logout_user, current_user
 
 #initialize blueprint
@@ -36,9 +36,7 @@ def login():
       #...print flash message
       flash('Esta cuenta no existe.', category='error')
 
-    return render_template('login.html')
-
-
+    return render_template('login.html', user=current_user)
 
 
 @auth.route('/logout')
@@ -48,12 +46,10 @@ def logout():
   return redirect(url_for('auth.login'))
 
 
-
-
 @auth.route('/ajustes', methods=['GET', 'POST'])
 def change_password():
   if request.method == 'POST':
-    username = request.form.get('username')
+    username = request.form.get('username')  #??necessary??
     password = request.form.get('password')
     password1 = request.form.get('password1')
     password2 = request.form.get('password2')
@@ -66,7 +62,11 @@ def change_password():
       if check_password_hash(user.password, password):
         #if passwords match print flash message
         flash('Has sido autenticado/a!', category='success')
-        if password1 == password2:
+        if len(password1) < 8:
+          flash(
+            'Contraseña es muy corta. La contraseña debe tener más de 8 caracteres, intente de nuevo.',
+            category='error')
+        elif password1 == password2:
           updated_password = User(
             password=generate_password_hash(password1, method='sha256'))
           db.session.add(updated_password)
@@ -87,3 +87,5 @@ def change_password():
     else:
       #...print flash message
       flash('Esta cuenta no existe.', category='error')
+
+  return render_template("ajustes.html", user=current_user)

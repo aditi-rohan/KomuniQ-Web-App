@@ -8,7 +8,7 @@ import json
 views = Blueprint('views', __name__)
 
 
-@views.route('/', methods=['POST', 'GET'])
+@views.route('/', methods=['GET', 'POST'])
 @login_required
 def dashboard():
   if request.method == 'POST':
@@ -25,12 +25,12 @@ def dashboard():
       db.session.commit()
       flash('Mensaje fue enviado!', category='success')
 
-  return render_template('dashboard.html')
+  return render_template("dashboard.html", user=current_user)
   #TODO: change this function to be mensajes() and to render to mensajes.html
 
 
-@views.route('/delete-mensaje', methods=['POST'])
-def delete_mensaje():
+@views.route('/delete-message', methods=['POST'])
+def delete_message():
   #function expects a JAOn from the INDEX.js file
   message = json.loads(request.data)
   messageId = message['messageId']

@@ -13,12 +13,12 @@ class User(db.Model, UserMixin):
   apellido = db.Column(db.String(150))
   permiso = db.Column(db.String(1))
   #references notes in user
-  mensajes = db.relationship('Note')
+  mensajes = db.relationship('Message')
 
 
 class Message(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   data = db.Column(db.String(10000))
-  date = db.Column(db.DateTime(timezone=True), default=func.now)
+  date = db.Column(db.DateTime(timezone=True), default=func.now())
   #establishes many to one relationship with User class (there can be many notes to one user)
   user_id = db.Column(db.Integer, db.ForeignKey('user.id'))

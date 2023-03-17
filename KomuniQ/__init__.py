@@ -8,12 +8,21 @@ DB_NAME = "database.db"
 
 
 def create_app():
+  import os
   #initialize flask
   app = Flask(__name__)
+
+  #Create the instance folder if it doesn't exist
+  try:
+    os.makedirs(app.instance_path)
+  except OSError:
+    pass
+
   #encrypt/secure cookies and session data with secret key
   app.config['SECRET_KEY'] = '%#Hd6B2mR%n7R!m$6Mc4x?5@3iAY9y'
   #SQLAlchemy database is stored at f'sqlite:///{DB_NAME}' and thus will be stored inside the KomuniQ folder
-  app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
+  app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(
+    app.instance_path, 'database.db')
   #initialize database
   db.init_app(app)
 
@@ -23,7 +32,7 @@ def create_app():
   app.register_blueprint(views, url_prefix='/')
   app.register_blueprint(auth, url_prefix='/')
 
-  from .models import User, Note
+  from .models import User
 
   with app.app_context():
     db.create_all()

@@ -24,6 +24,10 @@
     <link 
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@300;400;500;600;700&display=swap" > 
+    <!--google icons-->
+    <link 
+      rel="stylesheet" 
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
     <!--site stylesheets
     <link 
       rel="stylesheet" 
@@ -53,10 +57,7 @@
           id="navbar">
           <!--navigation items-->
           <div class="navbar-nav">
-            <a 
-              class="nav-item nav-link" 
-              id="login" 
-              href="/login">Login</a>
+            {% if user.is_authenticated %}
             <a 
               class="nav-item nav-link" 
               id="dashboard" 
@@ -77,6 +78,12 @@
               class="nav-item nav-link" 
               id="logout" 
               href="/logout">Logout</a>
+            {% else %}
+            <a 
+              class="nav-item nav-link" 
+              id="login" 
+              href="/login">Login</a>
+            {% endif %}
           </div>
         </div>
       </button>
@@ -129,6 +136,9 @@
     <div 
       class="footer" 
       style="background-color: #024faa; color: #FFDD64; padding-top: 15px; padding-bottom: 15px;">
+      <p style="text-align: center; color: #FFDD64;">
+        &copy; 2023 KomuniQ Inc. All rights reserved.
+      </p>
       <p style="text-align: center; color: #FFDD64;">
         &copy; 2023 Ambar Castillo. All rights reserved.
       </p>

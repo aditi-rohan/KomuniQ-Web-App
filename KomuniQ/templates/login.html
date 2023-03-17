@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% block title %}Login | KomuniQ{% endblock %}
 {% block content %}
-<div class="container" style="background-color: white; color: 024faa; padding-top: 50px;">
+<div 
+  class="container" 
+  style="background-color: white; color: 024faa; padding-top: 50px;">
   <center>
     <img 
       src="{{ url_for('static', filename='images/icon.png')}}" 
@@ -18,7 +20,7 @@
         
         
   <form method="POST">
-    <h1 align="center">Acceder a Cuenta</h1>
+    <h3 align="center">Acceder a Cuenta</h1>
           
     <div class="form-group">
       <!--username-->
@@ -40,12 +42,11 @@
         placeholder="Introduzca su contraseña" required>
     </div>
 
-    
     <br />
           
     <button 
       type="submit" 
-      class="btn" >Login</button>
+      class="btn btn-primary" >Login</button>
   </form>
 </div>
 

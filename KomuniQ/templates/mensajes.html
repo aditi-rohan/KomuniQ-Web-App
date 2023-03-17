@@ -1,8 +1,33 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+
 {% block title %}Mensajes | KomuniQ{% endblock %}
+
 {% block content %}
-{% if %}<!--if user's permiso is 1=admin & show admin view/content-->
-{% if %}<!--if user's permiso is 2=teacher & show teacher view/content-->
-{% if %}<!--if user's permiso is 3=parent & show parent view/content-->
-{% endif %}
+<div>
+  <span class="material-symbols-rounded">comment</span>
+  <h1 align="left">Mensajes</h1>
+</div>
+
+<ul class="list-group list-group-flush" id="messages">
+  {% for message in user.messages %}
+  <li class="list-group-item">
+    {{ message.data }}
+    <button type="button" class="close" onClick="deleteMessage({{ message.id }})">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </li>
+  {% endfor %}
+</ul>
+<form method="POST">
+  <textarea name="message" id="message" class="form-control"></textarea>
+  <br />
+  <div align="center">
+    <button type="submit" class="btn btn-primary">Add Message</button>
+  </div>
+</form>
+
+<!--{% if %}if user's permiso is 1=admin & show admin view/content-->
+<!--{% if %}if user's permiso is 2=teacher & show teacher view/content-->
+<!--{% if %}if user's permiso is 3=parent & show parent view/content
+{% endif %}-->
 {% endblock %}
