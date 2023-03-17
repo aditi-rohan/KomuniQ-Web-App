@@ -11,6 +11,7 @@ class User(db.Model, UserMixin):
   password = db.Column(db.String(150))
   nombre = db.Column(db.String(150))
   apellido = db.Column(db.String(150))
+  permiso = db.Column(db.String(1))
   #references notes in user
   mensajes = db.relationship('Note')
 
